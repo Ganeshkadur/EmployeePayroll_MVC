@@ -1,0 +1,155 @@
+﻿
+@model ModelLayer.RequestModels.EmployeeModel
+
+@{
+    ViewData["Title"] = "CreateEmployee";
+}
+
+<h1>Create</h1>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+   
+    .form-check-input[type="radio"] {
+        border-radius: 0 !important;
+    }
+
+
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px #000000;
+        }
+
+    .image-preview {
+        border-radius: 50%;
+        height: 80px;
+        width: 80px;
+    }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+
+        .back-link {
+            margin-top: 20px;
+            display: block;
+        }
+    </style>
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 form-container">
+            <form asp-action="CreateEmployee">
+                 
+                <div class="form-group">
+                    <label asp-for="FullName" class="control-label"></label>
+                    <input asp-for="FullName" class="form-control" required />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImagePath" class="control-label">Select Image:</label>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="mr-4">
+                            @Html.RadioButtonFor(model => model.ImagePath, Url.Content("~/Asseat/male.png"))
+                            <img class="image-preview" src="~/Asseat/male.png" />
+                        </div>
+                        <div class="mr-4">
+                            @Html.RadioButtonFor(model => model.ImagePath, Url.Content("~/Assets/img2.jpeg"))
+                            <img class="image-preview" src="~/Asseat/female.png" />
+                        </div>
+                        <div class="mr-4">
+                            @Html.RadioButtonFor(model => model.ImagePath, Url.Content("~/Asseat/male.png"))
+                            <img class="image-preview" src="~/Asseat/male.png" />
+                        </div>
+                        <div class="mr-4">
+                            @Html.RadioButtonFor(model => model.ImagePath, Url.Content("~/Assets/img2.jpeg"))
+                            <img class="image-preview" src="~/Asseat/female2.png" />
+                        </div>
+                    </div>
+                    <span asp-validation-for="ImagePath" class="text-danger"></span>
+                </div>
+                </br>
+                        @* <input asp-for="Gender" class="form-control" /> *@
+                <div class="form-group d-flex align-items-center gap-3" style="display:flex;gap:20px  ">
+                    <label asp-for="Gender" class="control-label" style="padding-top:9px">Gender :</label>
+                    <div class="d-flex align-items-center">
+                        <div class="mr-2">
+                            Male @Html.RadioButtonFor(m => m.Gender, "Male")
+                        </div>
+                        <div>
+                            Female @Html.RadioButtonFor(m => m.Gender, "Female")
+                        </div>
+                    </div>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+                </br>
+                <div class="form-group" style="display:flex;gap:20px;">
+                    <label asp-for="Department" class="control-label">Department:</label>
+
+                    <div class="form-check">
+                        <input type="radio" asp-for="Department" value="HR" class="form-check-input"  />
+                        <label class="form-check-label">HR</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="radio" asp-for="Department" value="Sales" class="form-check-input" />
+                        <label class="form-check-label">Sales</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="radio" asp-for="Department" value="Finance" class="form-check-input" />
+                        <label class="form-check-label">Finance</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="radio" asp-for="Department" value="Others" class="form-check-input" />
+                        <label class="form-check-label">Others</label>
+                    </div>
+
+                    <span asp-validation-for="Department" class="text-danger"></span>
+                </div>
+                    <div class="form-group" style="margin-bottom:40px;margin-top:40px">
+                        <label asp-for="Salary" class="control-label"></label>
+                        <input asp-for="Salary" class="form-control" />
+                        <span asp-validation-for="Salary" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="margin-bottom:40px;margin-top:40px">
+                        <label asp-for="StartDate" class="control-label"></label>
+                        <input asp-for="StartDate" class="form-control" />
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="margin-bottom:20px;margin-top:40px">
+                        <label asp-for="Notes" class="control-label"></label>
+                        <input asp-for="Notes" class="form-control" />
+                        <span asp-validation-for="Notes" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary btn-block" />
+                    </div>
+                </form>
+                <div class="back-link">
+                <a asp-action="GetAllEmployee">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+

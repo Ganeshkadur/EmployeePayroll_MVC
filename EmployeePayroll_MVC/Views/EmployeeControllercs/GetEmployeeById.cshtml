@@ -1,0 +1,143 @@
+﻿@model Employee_Repository.Entities.Employee
+
+@{
+    ViewData["Title"] = "GetEmployeeById";
+}
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        h1 {
+            color: #007BFF;
+            margin-top: 20px;
+        }
+
+        h4 {
+            color: #007BFF;
+        }
+
+        .row {
+            margin-top: 20px;
+        }
+
+        dl.row {
+            margin-top: 20px;
+        }
+
+        dt.col-sm-2 {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        dd.col-sm-10 {
+            margin-bottom: 10px;
+        }
+
+        .btn-update,
+        .btn-back {
+            padding: 8px 12px;
+            margin: 2px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .btn-update {
+            background-color:red;
+            color: white;
+            border: none;
+        }
+
+            .btn-update:hover {
+                background-color: #45a049;
+            }
+
+        .btn-back {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+        }
+
+            .btn-back:hover {
+                background-color: #0056b3;
+            }
+    </style>
+
+
+<div>
+    <h4>EmployeeEntity</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployeeId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmployeeId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ImagePath)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Department)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Salary)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+    </dl>
+
+    <a asp-action="Edit" asp-route-id="@Model.EmployeeId" class="btn-update">Update</a>
+<a asp-action="GetAllEmployee" class="btn-back">Back to List</a>
+<a asp-action="DeleteEmployee" asp-route-id="@Model.EmployeeId" class="btn-update">Delete</a>
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,121 @@
+﻿@model IEnumerable<Employee_Repository.Entities.Employee>
+
+@{
+    ViewData["Title"] = "GetAllEmployee";
+}
+
+
+
+
+
+<h1>GetAllEmployees</h1>
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid white;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: darkslategrey;
+        color: floralwhite;
+        font-weight: bold;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    button {
+        padding: 5px;
+        margin: 2px;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    .update-btn {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .details-btn {
+        background-color: #007BFF;
+        color: white;
+    }
+
+    .delete-btn {
+        background-color: #DC3545;
+        color: white;
+    }
+</style>
+
+<p style="display: flex; justify-content: flex-start; align-items: flex-start; margin-top: 20px;">
+
+
+    <button style="padding: 8px 12px; margin: 2px; background-color: #4CAF50;  border: none; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; border-radius: 4px;">
+        @Html.ActionLink("Create", "CreateEmployee", new { style = "color: white; text-decoration: none;" })
+    </button>
+
+    <button style="padding: 8px 12px; margin: 2px; background-color: #DC3545;  border: none; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; border-radius: 4px;">
+        @Html.ActionLink("Login", "Login", new { style = "color: white; text-decoration: none;" })
+    </button>
+
+
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Employee Id</th>
+            <th>Full Name</th>
+            <th>Image Path</th>
+            <th>Gender</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Start Date</th>
+            <th>Notes</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.EmployeeId</td>
+                <td>@employee.FullName</td>
+                <td>@employee.ImagePath</td>
+                <td>@employee.Gender</td>
+                <td>@employee.Department</td>
+                <td>@employee.Salary</td>
+                <td>@employee.StartDate</td>
+                <td>@employee.Notes</td>
+                <td>
+                    <button style="padding: 5px; margin: 2px; background-color: #4CAF50; color: white; border: none; text-align: center; text-decoration: none; display: inline-block; font-size: 14px;">
+                        @Html.ActionLink("Update", "Edit", new { id = employee.EmployeeId }, new { style = "color: white; text-decoration: none;" })
+                    </button>
+                    <button style="padding: 5px; margin: 2px; background-color: #007BFF; color: white; border: none; text-align: center; text-decoration: none; display: inline-block; font-size: 14px;">
+                        @Html.ActionLink("Details", "GetEmployeeById", new { id = employee.EmployeeId }, new { style = "color: white; text-decoration: none;" })
+                    </button>
+                    <button style="padding: 5px; margin: 2px; background-color: #DC3545; color: white; border: none; text-align: center; text-decoration: none; display: inline-block; font-size: 14px;">
+                        @Html.ActionLink("Delete", "DeleteEmployee", new { id = employee.EmployeeId }, new { style = "color: white; text-decoration: none;" })
+                    </button>
+                    <button style="padding: 5px; margin: 2px; background-color:wheat; color:black; border: none; text-align: center; text-decoration: none; display: inline-block; font-size: 14px;">
+                        @Html.ActionLink("GetByName", "GetAllEmployeeByName", new { name = employee.FullName }, new { style = "color: white; text-decoration: none;" })
+                    </button>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
